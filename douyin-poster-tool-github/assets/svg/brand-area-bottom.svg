@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_2" data-name="图层 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 463.72">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#_未命名的渐变_76);
+      }
+
+      .cls-2 {
+        fill: url(#_未命名的渐变_16);
+      }
+
+      .cls-3 {
+        fill: url(#_未命名的渐变_11);
+      }
+    </style>
+    <linearGradient id="_未命名的渐变_76" data-name="未命名的渐变 76" x1="343.25" y1="203.4" x2="1127.25" y2="75.57" gradientUnits="userSpaceOnUse">
+      <stop offset=".04" stop-color="#ffe266"/>
+      <stop offset=".08" stop-color="#ffd963"/>
+      <stop offset=".14" stop-color="#ffc45e"/>
+      <stop offset=".34" stop-color="#ffab6a"/>
+      <stop offset=".76" stop-color="#ff6b8b"/>
+      <stop offset=".88" stop-color="#ff5995"/>
+    </linearGradient>
+    <linearGradient id="_未命名的渐变_11" data-name="未命名的渐变 11" x1="461.25" y1="146.39" x2="-53.85" y2="96.14" gradientUnits="userSpaceOnUse">
+      <stop offset=".09" stop-color="#f9f2f7"/>
+      <stop offset=".91" stop-color="#4dcdff"/>
+    </linearGradient>
+    <linearGradient id="_未命名的渐变_16" data-name="未命名的渐变 16" x1="424.42" y1="-107.6" x2="564.56" y2="362.06" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff9624"/>
+      <stop offset=".08" stop-color="#ff7a2e"/>
+      <stop offset=".21" stop-color="#ff553c"/>
+      <stop offset=".35" stop-color="#ff3647"/>
+      <stop offset=".49" stop-color="#ff1e50"/>
+      <stop offset=".64" stop-color="#ff0d57"/>
+      <stop offset=".8" stop-color="#ff035a"/>
+      <stop offset="1" stop-color="#ff005c"/>
+    </linearGradient>
+  </defs>
+  <g id="_图层_1-2" data-name="图层 1">
+    <g>
+      <path class="cls-1" d="M1079.99,47.16v162.73H0v-77.14L1026.82.39c28.2-3.63,53.18,18.33,53.18,46.76Z"/>
+      <path class="cls-3" d="M1080,124.3v59.55H0v-98.64c0-20.23,17.16-36.21,37.33-34.78l1042.67,73.87Z"/>
+      <path class="cls-2" d="M1079.99,103.23v360.49H.07V136.58c0-23.34,18.43-42.52,41.76-43.44l987.16-38.95c27.84-1.1,51,21.17,51,49.03Z"/>
+    </g>
+  </g>
+</svg>

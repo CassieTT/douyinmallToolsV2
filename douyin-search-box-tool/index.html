@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>抖音电商品牌资产搜索框自适应模板</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="tool-shell">
+      <header class="tool-header">
+        <a class="brand-link" href="./index.html" aria-label="抖音商城">
+          <img src="./assets/logo.png" alt="抖音商城" />
+        </a>
+      </header>
+
+      <section class="workspace" aria-label="搜索框自适应生成器">
+        <form class="controls" id="searchForm" novalidate>
+          <div class="control-block">
+            <label for="searchText">搜索词</label>
+            <input id="searchText" name="searchText" type="text" autocomplete="off" value="品牌官方旗舰店" />
+            <p class="error-message" id="errorMessage" role="alert"></p>
+            <div class="mode-switch" id="modeSwitch" hidden>
+              <div class="mode-buttons" role="group" aria-label="搜索框版本">
+                <button class="mode-button active" type="button" data-mode="default">默认搜索框</button>
+                <button class="mode-button" type="button" data-mode="long">长版搜索框</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="advanced-config" aria-hidden="true">
+            <div class="control-block">
+              <label for="ratioInput">文字宽度比例</label>
+              <input id="ratioInput" name="ratioInput" type="number" min="0.1" max="1" step="0.01" value="1.0" />
+            </div>
+
+            <div class="control-block">
+              <label for="fontPath">字体文件路径</label>
+              <input id="fontPath" name="fontPath" type="text" value="./assets/fonts/DouyinMeihaoBold.otf" />
+            </div>
+          </div>
+
+          <div class="advanced-config" aria-hidden="true">
+            <div class="control-block">
+              <label for="templatePath">搜索框模板 SVG</label>
+              <input id="templatePath" name="templatePath" type="text" value="./assets/svg/search-box-adaptive-template.svg" />
+            </div>
+
+            <div class="control-block">
+              <label for="fontUpload">导入字体文件</label>
+              <input id="fontUpload" name="fontUpload" type="file" accept=".woff,.woff2,.ttf,.otf,font/*" />
+            </div>
+          </div>
+
+          <div class="advanced-config" aria-hidden="true">
+            <div class="control-block">
+              <label for="templateUpload">导入 SVG 模板</label>
+              <input id="templateUpload" name="templateUpload" type="file" accept=".svg,image/svg+xml" />
+            </div>
+
+            <div class="metrics" aria-live="polite">
+              <span>最大宽度 <strong id="targetWidthValue">0</strong></span>
+              <span>固定字号 <strong id="fontSizeValue">0</strong></span>
+              <span>容器 <strong id="containerWidthValue">0</strong></span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="primary-button" type="button" id="downloadSvg">导出 SVG</button>
+            <button type="button" id="downloadPng">导出 PNG</button>
+            <button type="button" id="downloadJpg">导出 JPG</button>
+            <button class="advanced-config" type="button" id="reloadTemplate" aria-hidden="true">重新载入模板</button>
+          </div>
+        </form>
+
+        <section class="preview-panel" aria-label="预览区域">
+          <div class="preview-stage">
+            <div class="preview-canvas" id="previewCanvas">
+              <svg
+                id="searchPreviewSvg"
+                class="search-preview-svg"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1173.75 138.09"
+                role="img"
+                aria-label="搜索框实时预览"
+              >
+              <g id="templateLayer">
+                <svg id="_图层_2" data-name="图层 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="1173.75" height="138.09" viewBox="0 0 1173.75 138.09">
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        fill: #ff005c;
+                      }
+                
+                      .cls-2 {
+                        fill: #fff;
+                      }
+                
+                      .cls-3 {
+                        fill: url(#_未命名的渐变_12);
+                      }
+                    </style>
+                    <linearGradient id="_未命名的渐变_12" data-name="未命名的渐变 12" x1="43.47" y1="-181.77" x2="395.71" y2="-19.19" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stop-color="#ff9624"/>
+                      <stop offset=".15" stop-color="#ff6f32"/>
+                      <stop offset=".33" stop-color="#ff4741"/>
+                      <stop offset=".5" stop-color="#ff284c"/>
+                      <stop offset=".68" stop-color="#ff1255"/>
+                      <stop offset=".84" stop-color="#ff045a"/>
+                      <stop offset=".98" stop-color="#ff005c"/>
+                    </linearGradient>
+                  </defs>
+                  <g id="_图层_1-2" data-name="图层 1">
+                    <g>
+                      <path class="cls-2" d="M1104.69,0H69.03C30.91,0,0,30.91,0,69.03s30.91,69.06,69.03,69.06h1035.66c38.15,0,69.06-30.91,69.06-69.06S1142.84,0,1104.69,0ZM1104.69,133.24H69.03c-35.39,0-64.21-28.79-64.21-64.21S33.64,4.82,69.03,4.82h1035.66c35.42,0,64.21,28.82,64.21,64.21s-28.79,64.21-64.21,64.21Z"/>
+                      <path class="cls-3" d="M1104.69,133.24H69.03c-35.39,0-64.21-28.79-64.21-64.21S33.64,4.82,69.03,4.82h1035.66c35.42,0,64.21,28.82,64.21,64.21s-28.79,64.21-64.21,64.21Z"/>
+                      <g>
+                        <g>
+                          <path class="cls-2" d="M65.59,34.52h-7.97v11.76h-9.27v7.97h9.27v16.28l-9.27,1.38v8.44l9.27-1.38v13.97c0,1.11-.9,2.01-2.01,2.01h-6.15v7.97h9.44c3.7,0,6.69-3,6.69-6.69v-18.44l8.1-1.21v-8.44l-8.1,1.21v-15.1h8.1v-7.97h-8.1v-11.76Z"/>
+                          <polygon class="cls-2" points="110.91 34.52 102.94 34.52 102.94 76.32 76.64 78.57 76.64 87.02 102.94 84.76 102.94 103.57 110.91 103.57 110.91 84.04 118.98 83.31 118.98 74.86 110.91 75.6 110.91 34.52"/>
+                          <polygon class="cls-2" points="98.82 43.83 79.93 40.46 79.93 48.9 98.82 52.27 98.82 43.83"/>
+                          <polygon class="cls-2" points="98.82 61.36 79.93 57.99 79.93 66.43 98.82 69.81 98.82 61.36"/>
+                        </g>
+                        <g>
+                          <polygon class="cls-2" points="182.85 51.64 174.42 51.64 172.87 57.95 150.8 57.95 149.26 51.64 140.83 51.64 142.37 57.95 126.45 57.95 126.45 65.92 196.9 65.92 196.9 57.95 181.3 57.95 182.85 51.64"/>
+                          <polygon class="cls-2" points="194.67 40.15 167.91 40.15 166.62 34.84 156.26 34.84 157.55 40.15 128.68 40.15 128.68 48.12 194.67 48.12 194.67 40.15"/>
+                          <path class="cls-2" d="M183.83,71.66h-44.31c-3.69,0-6.68,2.99-6.68,6.68v18.22c0,3.69,2.99,6.68,6.68,6.68h44.31c3.69,0,6.68-2.99,6.68-6.68v-18.22c0-3.69-2.99-6.68-6.68-6.68ZM183.02,94.08c0,1.11-.9,2-2,2h-38.69c-1.11,0-2-.9-2-2v-3.29h42.7v3.29ZM183.02,84.12h-42.7v-3.25c0-1.11.9-2,2-2h38.69c1.11,0,2,.9,2,2v3.25Z"/>
+                        </g>
+                        <g>
+                          <polygon class="cls-2" points="244.24 34.84 233.85 34.84 235.29 40.04 204.36 40.04 204.36 47.64 274.41 47.64 274.41 40.04 245.67 40.04 244.24 34.84"/>
+                          <path class="cls-2" d="M258.4,78.9c0-1.53-.55-2.93-1.47-4.02h4.47l-6.42-11.17h-8.76l5.14,8.93h-24.22c-.06,0-.12,0-.18,0l5.04-8.94h-8.72l-6.3,11.17h5.36c-.91,1.09-1.47,2.49-1.47,4.02v9.83c0,3.45,2.8,6.25,6.25,6.25h25.01c3.45,0,6.25-2.8,6.25-6.25v-9.83ZM250.96,86.15c0,.68-.55,1.24-1.24,1.24h-20.17c-.68,0-1.24-.55-1.24-1.24v-4.67c0-.68.55-1.24,1.24-1.24h20.17c.68,0,1.24.55,1.24,1.24v4.67Z"/>
+                          <path class="cls-2" d="M266.2,53.89h-9.3l.81-4.47h-8.35l-.81,4.44h-18.95l-.77-4.44h-8.35l.77,4.46h-8.61c-3.45,0-6.25,2.8-6.25,6.26v42.72h7.91v-39.46c0-1.06.86-1.91,1.91-1.91h46.42c1.06,0,1.91.86,1.91,1.91v29.08c0,1.75-1.42,3.18-3.18,3.18h-3.43v7.59h4.32c5.63,0,10.2-4.57,10.2-10.2v-32.91c0-3.45-2.8-6.25-6.25-6.25Z"/>
+                        </g>
+                        <polygon class="cls-2" points="301.16 82.44 295.6 83.87 295.6 55.19 301.16 55.19 301.16 47.6 295.6 47.6 295.6 36.66 287.63 36.66 287.63 47.6 282.08 47.6 282.08 55.19 287.63 55.19 287.63 85.92 282.08 87.35 282.08 95.79 301.16 90.88 301.16 82.44"/>
+                        <path class="cls-2" d="M343.02,87.39c4.21-6.63,7.43-16.23,7.43-29.08h-8.06c.27,7.41-.99,13.96-3.06,19.22-.91-4.37-1.45-9.59-1.85-15.68-.31-4.67-.54-8.07-.72-10.92h15.37v-7.59h-1.94l-1.89-6.87h-7.17l1.9,6.87h-6.7c-.12-2.47-.23-5.06-.37-8.54h-8.21s.13,3.48.37,8.54h-17.9c-3.45,0-6.25,2.8-6.25,6.25v35.94c0,6.13-1.29,6.91-4.89,8.49v9.26c8.93-2.47,12.8-8.19,12.8-17.95v-20.33h4.34c1.06,0,1.92.86,1.92,1.92v19.48c0,1.19-.96,2.15-2.15,2.15h-2.98v7.59h6.49c3.62,0,6.55-2.93,6.55-6.55v-25.75c0-3.55-2.88-6.43-6.43-6.43h-7.74v-4.57c0-1.06.86-1.91,1.91-1.91h14.73c.29,5.08.67,10.68,1.11,15.68.54,6.07,1.16,13.8,3.76,20.6-1.83,1.86-3.76,3.1-5.65,3.58v8.06c2.58,0,6.05-1.48,9.51-4.54,3.22,4.24,7.92,7.44,14.89,8.53v-9.64c-4.1-.74-7.01-2.69-9.1-5.81Z"/>
+                      </g>
+                      <path class="cls-2" d="M452.27,127.73c-32.36,0-58.72-26.33-58.72-58.69s26.36-58.69,58.72-58.69h652.36c32.36,0,58.69,26.33,58.69,58.69s-26.33,58.69-58.69,58.69H452.27Z"/>
+                      <path class="cls-1" d="M1121.68,69c0-17.33-14.09-31.42-31.42-31.42s-31.42,14.08-31.42,31.42,14.09,31.42,31.42,31.42c7.42,0,14.25-2.59,19.63-6.91l12.12,12.09,4.86-4.86-12.09-12.12c4.31-5.38,6.91-12.17,6.91-19.63ZM1090.26,93.57c-13.54,0-24.54-11.03-24.54-24.57s11-24.57,24.54-24.57,24.57,11.03,24.57,24.57-11.03,24.57-24.57,24.57Z"/>
+                    </g>
+                  </g>
+                </svg>
+              </g>
+
+              <!--
+                .search-content-area 是文字最大宽度适配基准容器。
+                如替换 AI 导出的 SVG，请按新模板调整 x/y/width/height，
+                或在脚本 SEARCH_BOX / SEARCH_CONTENT_AREA 中统一改坐标。
+              -->
+              <rect
+                class="search-content-area"
+                id="searchContentArea"
+                x="452"
+                y="31"
+                width="610"
+                height="76"
+                fill="transparent"
+              />
+              <text id="searchTextNode" class="search-text" text-anchor="middle"></text>
+              </svg>
+              <div
+                id="previewTextInput"
+                class="preview-text-input"
+                contenteditable="true"
+                role="textbox"
+                aria-label="直接编辑搜索词"
+                spellcheck="false"
+                inputmode="text"
+              ></div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>抖音商城联合 Logo 生成器</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel controls" aria-label="生成设置">
+        <div class="brand-head">
+          <span class="mark">抖音商城</span>
+          <h1>联合 Logo 生成器</h1>
+        </div>
+
+        <div class="field">
+          <label>联合方式</label>
+          <div class="segmented" role="tablist" aria-label="联合方式">
+            <button class="active" data-mode="two" type="button">双品牌</button>
+            <button data-mode="multi" type="button">多品牌</button>
+          </div>
+        </div>
+
+        <div class="field" id="positionField">
+          <label>抖音商城位置</label>
+          <div class="segmented" role="tablist" aria-label="抖音商城位置">
+            <button class="active" data-douyin-position="front" type="button">商城居前</button>
+            <button data-douyin-position="middle" type="button" hidden>商城居中</button>
+            <button data-douyin-position="back" type="button">商城居后</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="logoUpload">上传品牌 Logo</label>
+          <input id="logoUpload" type="file" accept="image/png" />
+          <p id="uploadHint">仅支持 PNG。双品牌模式会使用 1 张 logo。</p>
+        </div>
+
+        <div class="field">
+          <label>反白版本来源</label>
+          <div class="segmented" role="tablist" aria-label="反白版本来源">
+            <button class="active" data-white-mode="auto" type="button">制作反白logo</button>
+            <button data-white-mode="upload" type="button">上传反白logo</button>
+          </div>
+          <div id="whiteUploadWrap" hidden>
+            <input id="whiteLogoUpload" type="file" accept="image/png" />
+            <p id="whiteUploadHint">按品牌上传顺序对应。未上传的品牌仍使用制作反白logo。</p>
+          </div>
+        </div>
+
+        <div class="field upload-order" id="uploadOrderField" hidden>
+          <div class="label-row">
+            <label id="orderLabel">上传顺序</label>
+            <output id="uploadCount">0 张</output>
+          </div>
+          <div class="logo-list" id="logoList"></div>
+        </div>
+
+        <div class="field">
+          <div class="label-row">
+            <label for="logoHeight">品牌 Logo 高度</label>
+            <output id="logoHeightValue">100%</output>
+          </div>
+          <input id="logoHeight" type="range" min="40" max="150" value="100" />
+        </div>
+
+        <div class="field">
+          <div class="label-row">
+            <label for="logoOffset">垂直微调</label>
+            <output id="logoOffsetValue">0</output>
+          </div>
+          <input id="logoOffset" type="range" min="-32" max="32" value="0" />
+        </div>
+
+        <div class="field">
+          <div class="label-row">
+            <label for="canvasPadding">边距</label>
+            <output id="canvasPaddingValue">56</output>
+          </div>
+          <input id="canvasPadding" type="range" min="24" max="120" value="56" />
+        </div>
+
+        <div class="actions">
+          <button id="downloadColor" type="button">下载彩色 PNG</button>
+          <button id="downloadWhite" type="button">下载反白 PNG</button>
+        </div>
+      </section>
+
+      <section class="preview-area" aria-label="生成预览">
+        <div class="preview-card">
+          <div class="preview-title">
+            <span>彩色版本</span>
+            <small>透明背景导出</small>
+          </div>
+          <div class="canvas-shell checker" id="colorShell">
+            <div class="canvas-stage" id="colorStage">
+              <canvas id="colorCanvas"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="preview-card dark">
+          <div class="preview-title">
+            <span>反白版本</span>
+            <small>透明背景导出</small>
+          </div>
+          <div class="canvas-shell" id="whiteShell">
+            <div class="canvas-stage" id="whiteStage">
+              <canvas id="whiteCanvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./asset-data.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

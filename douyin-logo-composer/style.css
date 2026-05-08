@@ -1,0 +1,329 @@
+:root {
+  color-scheme: light;
+  --ink: #101218;
+  --muted: #737b8c;
+  --line: rgba(20, 24, 35, 0.08);
+  --panel: rgba(255, 255, 255, 0.7);
+  --panel-strong: rgba(255, 255, 255, 0.86);
+  --page: #f3f5f9;
+  --accent: #ff255d;
+  --accent-2: #00d5c8;
+  --dark: #171a22;
+  --shadow: 0 24px 70px rgba(24, 30, 44, 0.1);
+  --glass-edge: rgba(255, 255, 255, 0.72);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: var(--ink);
+  background: var(--page);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: minmax(320px, 380px) minmax(0, 1fr);
+  gap: 22px;
+  width: min(1440px, calc(100vw - 48px));
+  margin: 24px auto;
+}
+
+.panel,
+.preview-card {
+  background: var(--panel);
+  border: 1px solid var(--glass-edge);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+}
+
+.controls {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  padding: 26px;
+}
+
+.brand-head {
+  margin-bottom: 30px;
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 11px;
+  border-radius: 99px;
+  color: #ffffff;
+  background: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 10px 26px rgba(255, 37, 93, 0.2);
+}
+
+h1 {
+  margin: 14px 0 0;
+  font-size: 28px;
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+
+.field {
+  display: grid;
+  gap: 10px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(20, 24, 35, 0.06);
+}
+
+.field label,
+.label-row {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+output,
+p,
+small {
+  color: var(--muted);
+}
+
+p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(var(--segment-count, 2), minmax(0, 1fr));
+  padding: 4px;
+  background: rgba(238, 241, 247, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 14px;
+}
+
+.segmented button {
+  height: 38px;
+  border: 0;
+  border-radius: 11px;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+}
+
+.segmented button.active {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 8px 22px rgba(20, 24, 35, 0.08);
+  font-weight: 700;
+}
+
+input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px dashed rgba(115, 123, 140, 0.28);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.56);
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.logo-list {
+  display: grid;
+  gap: 8px;
+}
+
+.logo-item {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.logo-item[draggable="true"] {
+  cursor: grab;
+}
+
+.logo-item.dragging {
+  opacity: 0.5;
+}
+
+.logo-item.drag-over {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(254, 44, 85, 0.12);
+}
+
+.logo-thumb {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 34px;
+  padding: 4px;
+  border: 1px solid rgba(20, 24, 35, 0.08);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.logo-thumb img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.logo-name {
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logo-tools {
+  display: flex;
+  gap: 4px;
+}
+
+.logo-tools button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(20, 24, 35, 0.08);
+  border-radius: 10px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.74);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.logo-tools button:disabled {
+  color: #b3b9c4;
+  cursor: not-allowed;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding-top: 18px;
+}
+
+.actions button {
+  height: 44px;
+  border: 0;
+  border-radius: 14px;
+  color: #ffffff;
+  background: #12151c;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 14px 30px rgba(18, 21, 28, 0.12);
+}
+
+.actions button:first-child {
+  background: var(--accent);
+  box-shadow: 0 16px 32px rgba(255, 37, 93, 0.22);
+}
+
+.preview-area {
+  display: grid;
+  gap: 24px;
+}
+
+.preview-card {
+  min-width: 0;
+  padding: 20px;
+}
+
+.preview-card.dark {
+  color: #ffffff;
+  background: rgba(18, 21, 28, 0.9);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.preview-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.canvas-shell {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 16px;
+  background: #20232b;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.52);
+}
+
+.canvas-stage {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.checker {
+  background-color: rgba(255, 255, 255, 0.92);
+  background-image: linear-gradient(45deg, rgba(230, 233, 239, 0.72) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(230, 233, 239, 0.72) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(230, 233, 239, 0.72) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(230, 233, 239, 0.72) 75%);
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+  background-size: 16px 16px;
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  inset: 0 auto auto 0;
+  max-width: none;
+  transform-origin: top left;
+}
+
+@media (max-width: 920px) {
+  .app {
+    grid-template-columns: 1fr;
+    width: min(100vw - 28px, 720px);
+    margin: 14px auto;
+  }
+
+  .controls {
+    position: static;
+  }
+}

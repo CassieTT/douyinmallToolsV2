@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>抖音商城品牌区海报自动生成工具</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="toolbar" aria-label="海报控制区">
+        <div class="brand-heading">
+          <img src="./assets/iconlogo.png" alt="抖音商城" />
+          <div>
+            <p>Poster Generator</p>
+            <h1>品牌区海报自动生成工具</h1>
+          </div>
+        </div>
+
+        <div class="control-section">
+          <label class="file-picker" for="imageUpload">
+            <input id="imageUpload" type="file" accept="image/jpeg,image/png,image/webp" />
+            <span>上传主视觉图片</span>
+            <small>支持 JPG / PNG / WebP</small>
+          </label>
+
+          <div class="crop-tools">
+            <div class="control-label-row">
+              <label for="imageScale">图片缩放</label>
+              <output id="imageScaleValue">100%</output>
+            </div>
+            <input id="imageScale" type="range" min="100" max="300" value="100" step="1" />
+
+            <div class="axis-grid">
+              <label>
+                X 轴位置
+                <input id="offsetX" type="number" value="0" step="5" />
+              </label>
+              <label>
+                Y 轴位置
+                <input id="offsetY" type="number" value="0" step="5" />
+              </label>
+            </div>
+
+            <div class="button-grid">
+              <button id="autoCenter" type="button">自动居中</button>
+              <button id="resetImage" type="button">重置</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-section">
+          <label for="searchText">搜索词</label>
+          <input id="searchText" type="text" value="" maxlength="22" autocomplete="off" placeholder="输入搜索词" />
+          <p id="searchError" class="field-hint" aria-live="polite"></p>
+        </div>
+
+        <div class="control-section">
+          <label>模板规格</label>
+          <div class="segmented-control" role="radiogroup" aria-label="模板规格">
+            <label>
+              <input type="radio" name="posterMode" value="brand" checked />
+              <span>带品牌区</span>
+            </label>
+            <label>
+              <input type="radio" name="posterMode" value="noBrand" />
+              <span>无品牌区</span>
+            </label>
+          </div>
+        </div>
+
+        <div id="noBrandOptions" class="control-section is-hidden">
+          <label>无品牌区背景</label>
+          <div class="segmented-control" role="radiogroup" aria-label="无品牌区背景">
+            <label>
+              <input type="radio" name="noBrandTheme" value="light" checked />
+              <span>浅色背景</span>
+            </label>
+            <label>
+              <input type="radio" name="noBrandTheme" value="dark" />
+              <span>深色背景</span>
+            </label>
+          </div>
+          <label class="switch-row" for="gradientToggle">
+            <span>
+              渐变叠加
+              <small>无品牌区底部渐变</small>
+            </span>
+            <input id="gradientToggle" type="checkbox" checked />
+            <i aria-hidden="true"></i>
+          </label>
+        </div>
+
+        <div id="brandHeightOptions" class="control-section">
+          <div class="control-label-row">
+            <label for="brandHeightRatio">品牌区尺寸</label>
+            <output id="brandHeightRatioValue">24%</output>
+          </div>
+          <input id="brandHeightRatio" type="range" min="24" max="40" value="24" step="1" />
+        </div>
+
+        <div class="control-section">
+          <label>品牌元素微调</label>
+          <div class="control-label-row">
+            <label for="brandElementScale">整体大小</label>
+            <output id="brandElementScaleValue">100%</output>
+          </div>
+          <input id="brandElementScale" type="range" min="80" max="120" value="100" step="1" />
+
+          <div class="control-label-row">
+            <label for="brandElementOffsetX">横向位置</label>
+            <output id="brandElementOffsetXValue">0px</output>
+          </div>
+          <input id="brandElementOffsetX" type="range" min="-120" max="120" value="0" step="1" />
+
+          <div class="control-label-row">
+            <label for="brandElementOffsetY">纵向位置</label>
+            <output id="brandElementOffsetYValue">0px</output>
+          </div>
+          <input id="brandElementOffsetY" type="range" min="-120" max="120" value="0" step="1" />
+
+          <button id="resetBrandElements" type="button">重置品牌元素</button>
+        </div>
+
+        <div class="control-section">
+          <label class="switch-row" for="badgeToggle">
+            <span>
+              角标
+              <small>左上角品牌角标</small>
+            </span>
+            <input id="badgeToggle" type="checkbox" checked />
+            <i aria-hidden="true"></i>
+          </label>
+        </div>
+
+        <div class="control-section">
+          <label>Logo 场景</label>
+          <div class="segmented-control" role="radiogroup" aria-label="Logo 场景">
+            <label>
+              <input type="radio" name="logoScene" value="single" checked />
+              <span>单一 logo</span>
+            </label>
+            <label>
+              <input type="radio" name="logoScene" value="union" />
+              <span>联合 logo</span>
+            </label>
+          </div>
+        </div>
+
+        <div id="unionLogoOptions" class="control-section is-hidden">
+          <label>联合方式</label>
+          <div class="segmented-control" role="radiogroup" aria-label="联合方式">
+            <label>
+              <input type="radio" name="unionMode" value="two" checked />
+              <span>双品牌</span>
+            </label>
+            <label>
+              <input type="radio" name="unionMode" value="multi" />
+              <span>多品牌</span>
+            </label>
+          </div>
+
+          <div id="unionPositionField">
+            <label>抖音商城位置</label>
+            <div class="segmented-control" role="radiogroup" aria-label="抖音商城位置">
+              <label>
+                <input type="radio" name="unionDouyinPosition" value="front" checked />
+                <span>商城居前</span>
+              </label>
+              <label>
+                <input type="radio" name="unionDouyinPosition" value="back" />
+                <span>商城居后</span>
+              </label>
+            </div>
+          </div>
+
+          <label class="file-picker compact" for="unionLogoUpload">
+            <input id="unionLogoUpload" type="file" accept="image/png" />
+            <span>上传品牌 Logo</span>
+            <small>仅支持透明 PNG</small>
+          </label>
+
+          <label>反白版本来源</label>
+          <div class="segmented-control" role="radiogroup" aria-label="反白版本来源">
+            <label>
+              <input type="radio" name="unionWhiteMode" value="auto" checked />
+              <span>自动反白</span>
+            </label>
+            <label>
+              <input type="radio" name="unionWhiteMode" value="upload" />
+              <span>上传反白</span>
+            </label>
+          </div>
+
+          <label id="unionWhiteUploadWrap" class="file-picker compact is-hidden" for="unionWhiteLogoUpload">
+            <input id="unionWhiteLogoUpload" type="file" accept="image/png" />
+            <span>上传反白 Logo</span>
+            <small>与品牌 Logo 顺序对应</small>
+          </label>
+
+          <div id="unionOrderField" class="upload-order is-hidden">
+            <div class="control-label-row">
+              <label id="unionOrderLabel">上传顺序</label>
+              <output id="unionUploadCount">0 张</output>
+            </div>
+            <div id="unionLogoList" class="logo-list"></div>
+          </div>
+
+          <div>
+            <div class="control-label-row">
+              <label for="unionLogoScale">联合 Logo 缩放</label>
+              <output id="unionLogoScaleValue">100%</output>
+            </div>
+            <input id="unionLogoScale" type="range" min="40" max="100" value="100" step="1" />
+          </div>
+        </div>
+
+        <div class="control-section export-tools">
+          <button id="downloadPng" type="button" class="primary">下载 PNG</button>
+          <button id="downloadJpg" type="button">下载 JPG</button>
+        </div>
+      </section>
+
+      <section class="preview-panel" aria-label="海报预览区">
+        <div class="template-picker-panel">
+          <label>模板比例</label>
+          <div class="template-category-grid" role="radiogroup" aria-label="模板大分类">
+            <label class="template-category-card">
+              <input type="radio" name="templateCategory" value="social" checked />
+              <span><strong>社交媒体</strong><small>抖音 / 小红书 / 横版</small></span>
+            </label>
+            <label class="template-category-card">
+              <input type="radio" name="templateCategory" value="offline" />
+              <span><strong>线下宣传</strong><small>海报 / 站牌 / banner</small></span>
+            </label>
+          </div>
+
+          <div class="template-groups" role="radiogroup" aria-label="模板比例">
+            <section class="template-group is-active" data-template-category="social" aria-label="社交媒体">
+              <h2>社交媒体</h2>
+              <div class="template-card-grid">
+                <label class="template-card">
+                  <input type="radio" name="templatePreset" value="douyin9x16" checked />
+                  <span><strong>抖音</strong><small>9:16 · 1080×1920</small></span>
+                </label>
+                <label class="template-card">
+                  <input type="radio" name="templatePreset" value="xiaohongshu3x4" />
+                  <span><strong>小红书</strong><small>3:4 · 1080×1440</small></span>
+                </label>
+                <label class="template-card">
+                  <input type="radio" name="templatePreset" value="social16x9" />
+                  <span><strong>横版</strong><small>16:9 · 1920×1080</small></span>
+                </label>
+                <label class="template-card">
+                  <input type="radio" name="templatePreset" value="social16x9Side" />
+                  <span><strong>横版海报2</strong><small>16:9 · 右侧品牌区</small></span>
+                </label>
+              </div>
+            </section>
+
+            <section class="template-group" data-template-category="offline" aria-label="线下宣传">
+              <h2>线下宣传</h2>
+              <div class="template-card-grid">
+                <label class="template-card">
+                  <input type="radio" name="templatePreset" value="poster1x1_5" />
+                  <span><strong>平面海报</strong><small>1:1.5 · 1620×1080</small></span>
+                </label>
+                <label class="template-card">
+                  <input type="radio" name="templatePreset" value="bus1x2" />
+                  <span><strong>公交站牌</strong><small>1:2 · 2160×1080</small></span>
+                </label>
+                <label class="template-card">
+                  <input type="radio" name="templatePreset" value="banner1x2_5" />
+                  <span><strong>长banner1</strong><small>1:2.5 · 2700×1080</small></span>
+                </label>
+                <label class="template-card">
+                  <input type="radio" name="templatePreset" value="banner1x4" />
+                  <span><strong>长banner2</strong><small>1:4 · 4320×1080</small></span>
+                </label>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="preview-meta">
+          <div>
+            <p>1080 × 1920 px</p>
+            <strong>竖版模板</strong>
+          </div>
+          <span id="uploadStatus">等待上传图片</span>
+        </div>
+        <div class="canvas-frame">
+          <canvas id="posterCanvas" width="1080" height="1920" aria-label="海报画布"></canvas>
+          <input id="previewSearchInput" class="preview-search-input" type="text" maxlength="22" autocomplete="off" aria-label="在预览搜索框中输入搜索词" />
+        </div>
+        <div class="usage-notes">
+          <label>应用注意事项</label>
+          <p>为了匹配界面适配，更好的与视觉相结合，以底部品牌区为主。</p>
+          <p>购物袋比例建议占整体画面的 30-50%。可根据画面情况，对 Logo 位置和大小微调，注意放置区域干净，效果添加清晰自然。</p>
+          <p>横版延展中，Logo 与搜索框合并露出时，可参考右侧摆放规则。品牌摆放根据画面排版决定，放在无海报内容部分或者品牌区。</p>
+          <p>当内容区域以抖音商城品牌为主导时，建议使用有品牌区的海报规范。使用时保证品牌区完整，不可变形或遮挡，标志及搜索框需居中放置，并以 Slogan 阅读性作为尺寸微调参考。</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="./asset-data.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

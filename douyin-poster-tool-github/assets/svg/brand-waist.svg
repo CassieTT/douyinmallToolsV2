@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_2" data-name="图层 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 24.66">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#_未命名的渐变_76);
+      }
+
+      .cls-2 {
+        fill: url(#_未命名的渐变_16);
+      }
+
+      .cls-3 {
+        fill: url(#_未命名的渐变_11);
+      }
+    </style>
+    <linearGradient id="_未命名的渐变_76" data-name="未命名的渐变 76" x1="34.32" y1="20.34" x2="112.72" y2="7.56" gradientUnits="userSpaceOnUse">
+      <stop offset=".04" stop-color="#ffe266"/>
+      <stop offset=".08" stop-color="#ffd963"/>
+      <stop offset=".14" stop-color="#ffc45e"/>
+      <stop offset=".34" stop-color="#ffab6a"/>
+      <stop offset=".76" stop-color="#ff6b8b"/>
+      <stop offset=".88" stop-color="#ff5995"/>
+    </linearGradient>
+    <linearGradient id="_未命名的渐变_11" data-name="未命名的渐变 11" x1="46.12" y1="14.64" x2="-5.39" y2="9.61" gradientUnits="userSpaceOnUse">
+      <stop offset=".09" stop-color="#f9f2f7"/>
+      <stop offset=".91" stop-color="#4dcdff"/>
+    </linearGradient>
+    <linearGradient id="_未命名的渐变_16" data-name="未命名的渐变 16" x1="46.16" y1="-9.16" x2="55.71" y2="22.85" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff9624"/>
+      <stop offset=".08" stop-color="#ff7a2e"/>
+      <stop offset=".21" stop-color="#ff553c"/>
+      <stop offset=".35" stop-color="#ff3647"/>
+      <stop offset=".49" stop-color="#ff1e50"/>
+      <stop offset=".64" stop-color="#ff0d57"/>
+      <stop offset=".8" stop-color="#ff035a"/>
+      <stop offset="1" stop-color="#ff005c"/>
+    </linearGradient>
+  </defs>
+  <g id="_图层_1-2" data-name="图层 1">
+    <g>
+      <path class="cls-1" d="M108,4.72v16.27H0v-7.71L102.68.04c2.82-.36,5.32,1.83,5.32,4.68Z"/>
+      <path class="cls-3" d="M108,12.43v5.95H0v-9.86c0-2.02,1.72-3.62,3.73-3.48l104.27,7.39Z"/>
+      <path class="cls-2" d="M108,10.32v14.34H0v-11.01C0,11.32,1.85,9.41,4.18,9.31l98.72-3.89c2.78-.11,5.1,2.12,5.1,4.9Z"/>
+    </g>
+  </g>
+</svg>
